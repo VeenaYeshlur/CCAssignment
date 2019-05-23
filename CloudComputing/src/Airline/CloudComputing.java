@@ -21,21 +21,22 @@ public class CloudComputing {
 	
 	public static void GetNumberOfFlights() {
 		
-		TreeMap<String, Integer> simpleMap = new TreeMap<String, Integer>();
+		TreeMap<String, Integer> tMap = new TreeMap<String, Integer>();
 		
 		try {
 			// Read input file provided
-			BufferedReader buffer = new BufferedReader(new FileReader(inputFile));
 			String line;
+			BufferedReader buffer = new BufferedReader(new FileReader(inputFile));
+			
 			ArrayList<String> unMatchedAirports = new ArrayList<String>();
 			while ((line = buffer.readLine()) != null) {
 				String[] split = line.split(",");
 				if (regexThis(split, 1)) {
-					if (simpleMap.containsKey(split[2])) {
+					if (tMap.containsKey(split[2])) {
 						// calculate number of flights from each airport
-						simpleMap.put(split[2], simpleMap.get(split[2]) + 1);
+						tMap.put(split[2], tMap.get(split[2]) + 1);
 					} else {
-						simpleMap.put(split[2], 1);
+						tMap.put(split[2], 1);
 					}
 				} else {
 					unMatchedAirports.add(split[2]);
@@ -45,7 +46,7 @@ public class CloudComputing {
 
 			// Write output to file
 			//FileWriter fw = new FileWriter(outputFile);
-			for (Entry<String, Integer> entry : simpleMap.entrySet()) {
+			for (Entry<String, Integer> entry : tMap.entrySet()) {
 				//System.out.println(entry.getKey() + " : " + entry.getValue());
 				log(entry.getKey() + " : " + entry.getValue(), fw);
 				log(System.getProperty("line.separator"), fw);
@@ -54,7 +55,7 @@ public class CloudComputing {
 			System.out.println("");
 			log("Unused airports (" + unMatchedAirports.size() + "): " + System.getProperty("line.separator"), fw);
 			for (String airport : unMatchedAirports) {
-				if (!simpleMap.containsKey(airport)) {
+				if (!tMap.containsKey(airport)) {
 					log(airport + ", ", fw);
 				}
 			}
