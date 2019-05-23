@@ -53,7 +53,7 @@ public class CloudComputing {
 			}
 
 			System.out.println("");
-			log("Unused airports (" + unMatchedAirports.size() + "): " + System.getProperty("line.separator"), fw);
+			log("Unmapped airports (" + unMatchedAirports.size() + "): " + System.getProperty("line.separator"), fw);
 			for (String airport : unMatchedAirports) {
 				if (!tMap.containsKey(airport)) {
 					log(airport + ", ", fw);
