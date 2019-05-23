@@ -186,9 +186,7 @@ public class CloudComputing {
 			log(ls, fw);
 			// Reduce
 			TreeMap<String, Double> distances = new TreeMap<String, Double>();
-			/**
-			 * For each flight calculate distance between the airports.
-			 */
+			// calculate the distance between the airports per flight.
 			for (Map.Entry<String, List<Flight>> entry : flights.entrySet()) {
 				for (Flight aFlight : entry.getValue()) {
 					try {
@@ -202,7 +200,7 @@ public class CloudComputing {
 						distances.put(entry.getKey(), distance);
 						
 					} catch (Exception e) {
-						log("Couldn't calculate a distance for flight " + aFlight.getFrom() + " to "
+						log("Failed to calculate distance for a flight " + aFlight.getFrom() + " to "
 								+ aFlight.getTo() + ".", fw);
 						log(ls, fw);
 					}
