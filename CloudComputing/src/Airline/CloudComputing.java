@@ -176,8 +176,7 @@ public class CloudComputing {
 						if (airports.get(split[1]) == null) {
 							airports.put(split[1], new Airport(split[1], split[2], split[3]));
 						}
-						// airports.get(split[1]).add(new Airport(split[1],
-						// split[2], split[3]));
+						
 					} catch (Exception e) {
 						System.out.println("Failed to add <" + split[0] + "> to map.");
 					}
