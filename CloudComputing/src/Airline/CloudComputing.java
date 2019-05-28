@@ -10,6 +10,8 @@ import java.util.TreeMap;
 import java.util.List;
 import java.util.Map;
 import java.util.Map.Entry;
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
 
 
 public class CloudComputing {
@@ -83,6 +85,9 @@ public class CloudComputing {
 		try {
 			BufferedReader buffer = new BufferedReader(new FileReader(inputFile));
 			String line;
+			int cpuThreads = Runtime.getRuntime().availableProcessors();
+			ExecutorService pool = Executors.newFixedThreadPool(cpuThreads);
+			
 			while ((line = buffer.readLine()) != null) {
 				String[] split = line.split(",");
 				if (regexThis(split, 2)) {
@@ -98,6 +103,7 @@ public class CloudComputing {
 				}
 			}
 			buffer.close();
+			pool.shutdown();
 			log(ls, fw);
 			
 			// Reduce 
@@ -128,6 +134,9 @@ public class CloudComputing {
 			TreeMap<String, Integer> passengerCount = new TreeMap<String, Integer>();
 			BufferedReader buffer = new BufferedReader(new FileReader(inputFile));
 			String line;
+			int cpuThreads = Runtime.getRuntime().availableProcessors();
+			ExecutorService pool = Executors.newFixedThreadPool(cpuThreads);
+			
 			while ((line = buffer.readLine()) != null) {
 				String[] split = line.split(",");
 				if (regexThis(split, 3)) {
@@ -139,6 +148,7 @@ public class CloudComputing {
 				}
 			}
 			buffer.close();
+			pool.shutdown();
 			
 			for (Map.Entry<String, Integer> entry : passengerCount.entrySet()) {
 				log(entry.getKey() + ": " + entry.getValue(), fw);
@@ -184,6 +194,7 @@ public class CloudComputing {
 			}
 			br.close();
 			log(ls, fw);
+			
 			// Reduce
 			TreeMap<String, Double> distances = new TreeMap<String, Double>();
 			// calculate the distance between the airports per flight.
