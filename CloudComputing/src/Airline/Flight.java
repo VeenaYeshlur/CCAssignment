@@ -33,6 +33,7 @@ public class Flight {
 		flightTime = Integer.parseInt(_flightTime);
 	}
 	
+	//Convert date and time format
 	private String unixToHHMMSS(String unixTime){
 		long unixSeconds = Long.parseLong(unixTime);
 		Date date = new Date(unixSeconds*1000L);                 // convert seconds to milliseconds
