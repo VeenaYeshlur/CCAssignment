@@ -16,8 +16,10 @@ public class Flight {
 	String unixArrival;
 	String arrivalTime;
 	int flightTime;
+	String deptFAA;
+	String destFAA;
 
-	
+	//The flight constructor - takes all defined variables as parameters.
 	public Flight(String _passID, String _flightID, String _from, String _to, String _unixArrival, String _flightTime) {
 		passengerID = _passID;
 		flightID = _flightID;
@@ -40,14 +42,16 @@ public class Flight {
 		return formattedDate;
 	}
 	
+	//Get PassengerID
 	public String getPassengerID(){
 		return passengerID;
 	}
 	
+	//Get flightID
 	public String getFlightID(){
 		return flightID;
 	}
-	
+		
 	public String getFrom(){
 		return from;
 	}
@@ -55,11 +59,26 @@ public class Flight {
 	public String getTo(){
 		return to;
 	}
+	
+	//Get Arrival Time
 	String convertArrivalTime(String seconds){
 		//Convert unix epoch time to HH:MM:SS
 		return new String(seconds);
 	}
 	
+        //Get deptFAA
+	public String getDeptFAA()
+	{
+		return deptFAA;
+	}
+	
+	//Get destFAA
+	public String getDest()
+	{
+		return destFAA;
+	}
+	
+
 	public String toString(){
 		return passengerID + " " + to + " " + from + " " + arrivalTime + " " + flightTime + " mins";
 	}
