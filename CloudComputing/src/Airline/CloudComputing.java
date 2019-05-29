@@ -47,7 +47,7 @@ public class CloudComputing {
 			buffer.close();
 
 			// Write output to file
-			//FileWriter fw = new FileWriter(outputFile);
+		
 			for (Entry<String, Integer> entry : tMap.entrySet()) {
 				//System.out.println(entry.getKey() + " : " + entry.getValue());
 				log(entry.getKey() + " : " + entry.getValue(), fw);
@@ -81,7 +81,7 @@ public class CloudComputing {
 
 	public static void CreateListOfFlights() {
 		
-		// Map
+		// Map steps
 		try {
 			BufferedReader buffer = new BufferedReader(new FileReader(inputFile));
 			String line;
@@ -106,7 +106,7 @@ public class CloudComputing {
 			pool.shutdown();
 			log(ls, fw);
 			
-			// Reduce 
+			// Reduce steps
 			for (Map.Entry<String, List<Flight>> entry : flights.entrySet()) {
 				log(entry.getKey(), fw);
 				log(ls, fw);
