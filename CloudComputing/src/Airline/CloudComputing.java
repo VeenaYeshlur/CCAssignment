@@ -298,7 +298,7 @@ public class CloudComputing {
 
 	
 	/***************************************************************************
-	 * Method use to verify input string is valid, all elements must be valid.
+	 * Method used to verify input string is valid, all elements must be valid.
 	 * Input: String to verify, number of task to verify.
 	 **************************************************************************/
 	private static boolean regexThis(String[] split, int task) {
